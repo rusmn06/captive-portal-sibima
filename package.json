@@ -14,7 +14,7 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@fastify/cookie": "11.1.2",
+    "@fastify/cookie": "11.1.5",
     "@fastify/formbody": "8.0.2",
     "@fastify/helmet": "13.1.0",
     "@fastify/rate-limit": "11.2.0",
