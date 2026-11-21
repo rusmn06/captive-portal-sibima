@@ -15,7 +15,7 @@ ${body}</section></main></body></html>`;
 }
 
 export function welcomeView(ssid: string, csrf: string): string {
-  return layout('GUEST-WIFI', `<p class="eyebrow">${escapeHtml(ssid)}</p><h1>SIBIMA UMUM</h1>
+  return layout('GUEST-WIFI', `<p class="eyebrow">${escapeHtml(ssid)}</p><h1>Welcome to SIBIMA</h1>
 <p>PT SIBIMA BERKARYA MANDIRI <br> KM 7 Kodeco, Sari Gadung, Simpang Empat, Tanah Bumbu Regency, South Kalimantan 72211</p>
 <form method="post" action="/authorize">
 <input type="hidden" name="csrf" value="${escapeHtml(csrf)}">
