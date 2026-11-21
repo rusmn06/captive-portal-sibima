@@ -1,45 +1,75 @@
 :root {
-  color-scheme: dark;
-  --bg: #07110e;
-  --surface: #0d1a16;
-  --surface-raised: #13231e;
-  --text: #eef8f4;
-  --muted: #b4c7c0;
-  --accent: #36f9b0;
-  --accent-dark: #063c2a;
-  --border: #29483d;
-  --focus: #ffe66d;
-  --danger: #ff6b6b;
+  color-scheme: light; /* Diubah ke light mode */
+  --bg: #d4e8f5; /* Latar belakang abu-abu kebiruan sangat muda */
+  --surface: #ffffff; /* Card berwarna putih bersih */
+  --surface-raised: #f8fafc;
+  --text: #0f172a; /* Teks utama: Biru dongker sangat gelap */
+  --muted: #475569; /* Teks sekunder: Abu-abu kebiruan */
+  --accent: #2563eb; /* Aksen biru teknologi (Tech Blue) */
+  --accent-hover: #1d4ed8; /* Biru lebih gelap untuk hover */
+  --border: #e2e8f0; /* Garis batas abu-abu terang */
+  --focus: #f59e0b; /* Warna kuning/oranye untuk fokus */
+  --danger: #ef4444;
 }
 
-* { box-sizing: border-box; }
-html, body { min-height: 100%; margin: 0; }
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+  margin: 0;
+}
 body {
   color: var(--text);
+  /* Efek pendaran cahaya biru tipis di latar belakang */
   background:
-    radial-gradient(circle at 82% 0%, rgb(54 249 176 / 12%), transparent 28rem),
-    radial-gradient(circle at 10% 100%, rgb(0 187 255 / 8%), transparent 25rem),
+    radial-gradient(circle at 82% 0%, rgb(37 99 235 / 8%), transparent 28rem),
+    radial-gradient(circle at 10% 100%, rgb(14 165 233 / 8%), transparent 25rem),
     var(--bg);
-  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-family:
+    ui-sans-serif,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
 }
 
-.shell { min-height: 100vh; display: grid; place-items: center; padding: clamp(18px, 5vw, 36px); }
+.shell {
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: grid;
+  place-items: safe center;
+  padding: clamp(18px, 5vw, 36px);
+  overflow-y: auto;
+}
+
 .card {
   width: min(100%, 440px);
   padding: clamp(26px, 7vw, 44px);
   overflow: hidden;
   border: 1px solid var(--border);
   border-radius: 22px;
-  background: linear-gradient(145deg, rgb(19 35 30 / 98%), rgb(13 26 22 / 98%));
-  box-shadow: 0 24px 70px rgb(0 0 0 / 38%);
+  background: var(--surface);
+  opacity: 90%;
+  /* Bayangan halus agar card terlihat melayang di light mode */
+  box-shadow: 
+    0 4px 6px -1px rgb(0 0 0 / 5%),
+    0 10px 25px -5px rgb(0 0 0 / 8%);
 }
 
-.site-brand { display: flex; justify-content: center; margin: -8px 0 24px; }
+.site-brand {
+  display: flex;
+  justify-content: center;
+  margin: -8px 0 24px;
+}
 .site-brand img {
   display: block;
   width: clamp(104px, 31vw, 142px);
   height: auto;
-  filter: drop-shadow(0 14px 28px rgb(54 249 176 / 16%));
+  /* Bayangan logo disesuaikan untuk background putih */
+  filter: drop-shadow(0 8px 16px rgb(0 0 0 / 10%));
 }
 
 .status {
@@ -48,31 +78,77 @@ body {
   display: grid;
   place-items: center;
   border-radius: 14px;
-  background: var(--accent-dark);
+  background: #eff6ff; /* Biru sangat muda */
   color: var(--accent);
   font-size: 24px;
   font-weight: 900;
+  margin: 0 auto 20px auto;
 }
-.status.success { background: var(--accent-dark); color: var(--accent); }
-.status.error { background: #481818; color: var(--danger); }
+.status.success {
+  background: #ecfdf5; /* Hijau sangat muda */
+  color: #10b981;
+}
+.status.error {
+  background: #fef2f2; /* Merah sangat muda */
+  color: var(--danger);
+}
 
 .eyebrow {
   margin: 0 0 8px;
   color: var(--accent);
   font-size: 13px;
   font-weight: 800;
-  letter-spacing: .12em;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
-h1 { margin: 20px 0 12px; color: var(--text); font-size: clamp(28px, 8vw, 38px); line-height: 1.08; letter-spacing: -.035em; }
-.eyebrow + h1 { margin-top: 0; }
-p { color: var(--muted); line-height: 1.65; }
 
-.terms { display: flex; gap: 12px; margin: 26px 0; color: var(--muted); font-size: 14px; line-height: 1.5; }
-.terms input { width: 19px; height: 19px; flex: 0 0 auto; margin-top: 1px; accent-color: var(--accent); }
-a { color: var(--accent); text-underline-offset: 3px; }
-a:hover { color: #fff; }
-button, .button {
+h1 {
+  margin: 20px 0 12px;
+  color: var(--text);
+  font-size: clamp(24px, 6vw, 32px);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-align: center;
+}
+.eyebrow + h1 {
+  margin-top: 0;
+}
+
+p {
+  color: var(--muted);
+  line-height: 1.65;
+  text-align: center;
+}
+
+.terms {
+  display: flex;
+  gap: 12px;
+  margin: 26px 0;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.5;
+  align-items: flex-start;
+}
+.terms input {
+  width: 19px;
+  height: 19px;
+  flex: 0 0 auto;
+  margin-top: 1px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}
+
+a {
+  color: var(--accent);
+  text-underline-offset: 3px;
+  font-weight: 600;
+}
+a:hover {
+  color: var(--accent-hover);
+}
+
+button,
+.button {
   width: 100%;
   min-height: 49px;
   display: block;
@@ -80,22 +156,50 @@ button, .button {
   border-radius: 12px;
   padding: 14px 18px;
   background: var(--accent);
-  color: #00150e;
+  color: #ffffff; /* Teks tombol menjadi putih */
   font: inherit;
   font-weight: 800;
   text-align: center;
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
-button:hover, .button:hover { border-color: #fff; background: #fff; color: #00150e; }
-button:focus-visible, a:focus-visible, input:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
-.note { padding: 14px; border-left: 4px solid var(--focus); background: #292712; color: #fff5b8; }
+button:hover,
+.button:hover {
+  border-color: var(--accent-hover);
+  background: var(--accent-hover);
+  color: #ffffff;
+}
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+.note {
+  padding: 14px;
+  border-left: 4px solid var(--focus);
+  background: #fffbeb; /* Kuning sangat muda */
+  color: #92400e; /* Teks cokelat gelap */
+  border-radius: 4px;
+}
 
 @media (max-height: 700px) {
-  .shell { place-items: start center; }
-  .site-brand img { width: 92px; }
-  .site-brand { margin-bottom: 16px; }
+  .shell {
+    place-items: safe center;
+  }
+  .site-brand img {
+    width: 92px;
+  }
+  .site-brand {
+    margin-bottom: 16px;
+  }
 }
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
 }
